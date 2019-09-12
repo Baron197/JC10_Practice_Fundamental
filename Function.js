@@ -87,22 +87,66 @@ var map = (arr, fn) => {
 // })
 // console.log(hasil)
 
-// var tampilkanScoreBoard = (angka) => {
-//     var arr = []
+var templateArr = [{
+    1: '   ',
+    2: ' _ ',
+    3: ' _ ',
+    4: '   ',
+    5: ' _ ',
+    6: ' _ ',
+    7: ' _ ',
+    8: ' _ ',
+    9: ' _ ',
+    0: ' _ '
+}, {
+    1: '  |',
+    2: ' _|',
+    3: ' _|',
+    4: '|_|',
+    5: '|_ ',
+    6: '|_ ',
+    7: '  |',
+    8: '|_|',
+    9: '|_|',
+    0: '| |'
+}, {
+    1: '  |',
+    2: '|_ ',
+    3: ' _|',
+    4: '  |',
+    5: ' _|',
+    6: '|_|',
+    7: '  |',
+    8: '|_|',
+    9: ' _|',
+    0: '|_|'
+}]
 
-//     while(angka > 0) {
-//         var angkaTerakhir = angka % 10;
-//         arr.unshift(angkaTerakhir)
+var tampilkanScoreBoard = (angka) => {
+    var arr = []
 
-//         angka = Math.floor(angka / 10)
-//     } 
+    while(angka > 0) {
+        var angkaTerakhir = angka % 10;
+        arr.unshift(angkaTerakhir)
 
-//     return arr
-// }
+        angka = Math.floor(angka / 10)
+    } 
 
-// var a = 3157
+    var output = ''
+    for(var i = 0; i < 3; i++) {
+        for(var j = 0; j < arr.length; j++) {
+            output += templateArr[i][arr[j]]
+        }
+        output += '\n'
+    }
 
-// console.log(tampilkanScoreBoard(a))
+    console.log(output)
+}
 
-console.log('_\n_|\n_|')
-console.log(' _\n|_\n _|')
+var a = 857
+
+tampilkanScoreBoard(a)
+
+// var output = ' _     _\n|_|  | _|\n|_|  ||_'
+
+// console.log(output)
